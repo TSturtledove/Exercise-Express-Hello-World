@@ -12,7 +12,8 @@ const requestTime = (req, res, next) => {
 }
 
 app.use(express.static("/public"));
-
+app.use(requestTime)
+app.use(routes)
 
 // app.get("/", (req, res, next) => {
 //   res.render("expresshelloworld");
