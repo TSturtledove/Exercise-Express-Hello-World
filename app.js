@@ -5,15 +5,21 @@ require("dotenv").config();
 // const router = Router();
 const express = require("express");
 const app = express();
+const routes = require("./routes/");
+
 
 const requestTime = (req, res, next) => {
   req.requestedTime = Date.now();
   next();
 }
 
+
+app.set("view engine", "pug")
+
+
 app.use(express.static("/public"));
-app.use(requestTime)
-app.use(routes)
+app.use(requestTime);
+app.use(routes);
 
 // app.get("/", (req, res, next) => {
 //   res.render("expresshelloworld");
